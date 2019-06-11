@@ -3,8 +3,7 @@
 
 ```
 docker build -t my-expose .
-docker run my-expose
+docker run -itd my-expose
+docker stop <docker_container>
 ```
 
-# TODO
-* it does not work now, push it to AWS and test again...
