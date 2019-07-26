@@ -29,5 +29,6 @@ docker network prune
 ## Volume
 
 
-
+# Hint
+`From python:3.6` might get different OS if we build dockerfile in different environments
 
