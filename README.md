@@ -30,5 +30,7 @@ docker network prune
 
 
 # Hint
-`From python:3.6` might get different OS if we build dockerfile in different environments
+* `From python:3.6` might get different OS if we build dockerfile in different environments
+* we need `#!/bin/bash` at the first line of the `.sh` file if we want to run `.sh` file in some docker environment
+
 
