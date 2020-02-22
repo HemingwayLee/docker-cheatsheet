@@ -72,6 +72,7 @@ docker network prune
 
 # Hint
 * `From python:3.6` might get different OS if we build dockerfile in different environments
+  * Use `docker build --no-cache -t u12_core .` will build it from scratch without using old cached python3.6
 * we need `#!/bin/bash` at the first line of the `.sh` file if we want to run `.sh` file in some docker environment
 * Docker container will automatically stop after `docker run -d` sometimes, it does not mean the dockerfile has some issues
 * Multiple base images (multiple `FROM` statement) is ok in the newer version of docker
