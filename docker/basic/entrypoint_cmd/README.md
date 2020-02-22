@@ -1,9 +1,20 @@
 # How to run
+
 ```
 docker run -it --rm my-test-linux
-docker run -it --rm my-test-linux www.google.com
+docker run -it --rm my-test-linux "123\n"
 ```
 
+It will print
+```
+I love docker
+```
+
+and
+
+```
+123
+```
 
 # Ref
 * The ENTRYPOINT specifies a command that will always be executed when the container starts
