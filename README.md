@@ -2,6 +2,14 @@
 
 ## Docker
 
+## Compare to VM
+| VM | docker container |
+| --- | --- |
+| Each VM has its own OS | Each container can share OS |
+| Boots in Minutes | Boots in seconds |
+| Few GBs in size | Few KBs/MBs in size |
+| Can move to new host easily | Destroyed or re-created rather than moving |
+
 ## Private docker repo
 We need to login first:  
 ```
