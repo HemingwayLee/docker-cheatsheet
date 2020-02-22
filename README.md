@@ -15,9 +15,14 @@ It is a tool for defining and running multiple containers by using yml file
 https://stackoverflow.com/questions/47536536/whats-the-difference-between-docker-compose-and-kubernetes  
 
 # Cheatsheet  
-Kill any stale or active containers:  
+Kill any stale containers:  
 ```
 docker rm -f $(docker ps -aq)
+```
+
+Or in new version of docker:
+```
+docker container prune
 ```
 
 Clear any cached networks:  
