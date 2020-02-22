@@ -27,6 +27,16 @@ docker tag my_ubuntu xxx.azurecr.io/my_ubuntu
 docker push xxx.azurecr.io/my_ubuntu
 ```
 
+### Layer in docker
+Every line in a dockerfile will create a layer  
+```
+FROM ubuntu             #This has its own number of layers say "X"
+RUN mkdir /tmp/foo      #This is one layer 
+RUN apt-get install vim #This is one layer 
+```
+
+[!layers](https://i.stack.imgur.com/J2cge.jpg)
+
 ## Docker Compose
 It is a tool for defining and running multiple containers by using yml file
 
