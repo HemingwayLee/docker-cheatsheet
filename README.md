@@ -2,6 +2,12 @@
 
 ## Docker
 
+## Architecture
+![arch1](https://geekflare.com/wp-content/uploads/2019/09/traditional-vs-new-gen.png)
+
+## Basic commands
+![commands](https://geekflare.com/wp-content/uploads/2019/09/docker-architecture.png)
+
 ## Compare to VM
 | VM | docker container |
 | --- | --- |
