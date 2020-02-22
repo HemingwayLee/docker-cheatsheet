@@ -2,6 +2,23 @@
 
 ## Docker
 
+## Private docker repo
+We need to login first:  
+```
+docker login xxx.azurecr.io
+```
+
+### pull from private repo
+```
+docker pull xxx.azurecr.io/my_nginx:51
+```
+
+### push to private repo
+```
+docker tag my_ubuntu xxx.azurecr.io/my_ubuntu
+docker push xxx.azurecr.io/my_ubuntu
+```
+
 ## Docker Compose
 It is a tool for defining and running multiple containers by using yml file
 
