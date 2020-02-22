@@ -35,7 +35,8 @@ RUN mkdir /tmp/foo      #This is one layer
 RUN apt-get install vim #This is one layer 
 ```
 
-[!layers](https://i.stack.imgur.com/J2cge.jpg)
+`docker images` only shows container layers (not images layers)
+![layers](https://i.stack.imgur.com/J2cge.jpg)
 
 ## Docker Compose
 It is a tool for defining and running multiple containers by using yml file
