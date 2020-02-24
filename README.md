@@ -64,8 +64,8 @@ docker build -t dockhello -f ./dockhello .
 docker build -t docker-jenkins .
 ```
 
-`-t`: Tag an image
-`-f`: Specify a Dockerfile ??
+`-t`: Tag an image  
+`-f`: Specify a Dockerfile ??  
 
 ## docker run (docker image to docker container)
 
@@ -78,10 +78,10 @@ docker run -it --rm my-ubuntu
 docker run -it --rm -p 52022:22 my-ubuntu
 ```
 
-`-d`: detached mode
-`-p`: Publish a container's port or a range of ports to the host
-`-it`: For interactive processes (like a shell), you must use `-i` `-t` together in order to allocate a tty for the container process. `-i` `-t` is often written `-it`
-`--rm`: delete docker container automatically after "exit"
+`-d`: detached mode  
+`-p`: Publish a container's port or a range of ports to the host  
+`-it`: For interactive processes (like a shell), you must use `-i` `-t` together in order to allocate a tty for the container process. `-i` `-t` is often written `-it`  
+`--rm`: delete docker container automatically after "exit"  
 
 ## Kill any stale containers
 ```
@@ -91,6 +91,11 @@ docker rm -f $(docker ps -aq)
 Or in new version of docker:
 ```
 docker container prune
+```
+
+## Get access host services (e.g., database) from a docker container
+```
+docker.for.mac.host.internal
 ```
 
 ## Clear any cached networks 
