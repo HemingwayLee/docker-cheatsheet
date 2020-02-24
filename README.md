@@ -1,6 +1,4 @@
-# Terminologies
-
-## Docker
+# docker-cheatsheet
 
 ## Architecture
 ![arch1](https://geekflare.com/wp-content/uploads/2019/09/traditional-vs-new-gen.png)
@@ -16,18 +14,21 @@
 | Few GBs in size | Few KBs/MBs in size |
 | Can move to new host easily | Destroyed or re-created rather than moving |
 
-## Private docker repo
-We need to login first:  
+## Docker Hub
+This is the official registry which is used to host various Docker images.
+
+## Private docker registry
+* We need to login first:  
 ```
 docker login xxx.azurecr.io
 ```
 
-### pull from private repo
+* pull from private repo
 ```
 docker pull xxx.azurecr.io/my_nginx:51
 ```
 
-### push to private repo
+* push to private repo
 ```
 docker tag my_ubuntu xxx.azurecr.io/my_ubuntu
 docker push xxx.azurecr.io/my_ubuntu
@@ -57,7 +58,32 @@ It is a tool for defining and running multiple containers by using yml file
 https://stackoverflow.com/questions/47536536/whats-the-difference-between-docker-compose-and-kubernetes  
 
 # Cheatsheet  
-Kill any stale containers:  
+## docker build (dockerfile to image)
+```
+docker build -t dockhello -f ./dockhello .
+docker build -t docker-jenkins .
+```
+
+`-t`: Tag an image
+`-f`: Specify a Dockerfile ??
+
+## docker run (docker image to docker container)
+
+```
+docker run dockhello
+docker run -p 8080:8080 -p 50000:50000 docker-jenkins
+docker run -d -p 8080:8080 -p 50000:50000 docker-jenkins
+docker run -i -t ubuntu-test
+docker run -it --rm my-ubuntu
+docker run -it --rm -p 52022:22 my-ubuntu
+```
+
+`-d`: detached mode
+`-p`: Publish a container's port or a range of ports to the host
+`-it`: For interactive processes (like a shell), you must use `-i` `-t` together in order to allocate a tty for the container process. `-i` `-t` is often written `-it`
+`--rm`: delete docker container automatically after "exit"
+
+## Kill any stale containers
 ```
 docker rm -f $(docker ps -aq)
 ```
@@ -67,7 +93,7 @@ Or in new version of docker:
 docker container prune
 ```
 
-Clear any cached networks:  
+## Clear any cached networks 
 ```
 docker network prune
 ```
