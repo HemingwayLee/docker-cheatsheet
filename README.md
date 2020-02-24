@@ -98,7 +98,23 @@ docker container prune
 docker.for.mac.host.internal
 ```
 
-## Clear any cached networks 
+## Copy file from/into docker
+```
+docker cp foo.txt {mycontainer}:/foo.txt
+docker cp {mycontainer}:/foo.txt foo.txt
+```
+
+`mycontainer` is a container ID, not an image ID.
+
+## Network
+```
+docker network create --subnet=172.18.0.0/16 mynet123
+docker run --net mynet123 --ip 172.18.0.15 -it --rm -p 30001:27017 my-mongo1
+docker run --net mynet123 --ip 172.18.0.14 -it --rm -p 30002:27017 my-mongo2
+docker run --net mynet123 --ip 172.18.0.13 -it --rm -p 30003:27017 my-mongo3
+```
+
+### Clear any cached networks 
 ```
 docker network prune
 ```
