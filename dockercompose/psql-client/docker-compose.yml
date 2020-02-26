@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  mydb:
+    image: postgres
+    # Expose 5555 to `host`
+    #  In `client`, we still need to connect to port 5432
+    #  In `host`, we can run `psql -U postgres -h 127.0.0.1 -p 5555`
+    ports:
+      - "5555:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: abc
+  client:
+    build: .
+    command: ./init.sh
+    environment:
+      DBHOST: mydb
+    depends_on:
+      - mydb
+
