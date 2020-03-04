@@ -98,13 +98,16 @@ docker container prune
 docker.for.mac.host.internal
 ```
 
-## Copy file from/into docker
+## Get into a running docker container
 ```
-docker cp foo.txt {mycontainer}:/foo.txt
-docker cp {mycontainer}:/foo.txt foo.txt
+docker exec -it {container_id} /bin/bash
 ```
 
-`mycontainer` is a container ID, not an image ID.
+## Copy file from/into docker
+```
+docker cp foo.txt {container_id}:/foo.txt
+docker cp {container_id}:/foo.txt foo.txt
+```
 
 ## Network
 ```
