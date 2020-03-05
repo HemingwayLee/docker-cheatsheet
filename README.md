@@ -65,7 +65,7 @@ docker build -t docker-jenkins .
 ```
 
 `-t`: Tag an image  
-`-f`: Specify a Dockerfile ??  
+`-f`: Specify a dockerfile file name (we still need a `.` in the end of the command)  
 
 ## docker run (docker image to docker container)
 
