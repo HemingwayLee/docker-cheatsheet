@@ -1,0 +1,28 @@
+upstream my-django {
+  server ${MY_IP}:${MY_PORT};
+}
+
+
+server {
+  listen 80 default_server;
+  listen [::]:80 default_server;
+
+  root /var/www/html;
+
+  index index.html index.nginx-debian.html;
+
+  server_name _;
+
+  # location / {
+  #   proxy_pass  http://my-django;
+  # }
+
+  location ~/abc/v1/.* {
+    proxy_pass       http://my-django;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $https;
+    proxy_redirect   off;
+  }
+}
