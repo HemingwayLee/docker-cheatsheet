@@ -13,9 +13,9 @@ server {
 
   server_name _;
 
-  # location / {
-  #   proxy_pass  http://my-django;
-  # }
+  location / {
+    try_files $uri $uri/ /index.nginx-debian.html;
+  }
 
   location ~/abc/v1/.* {
     proxy_pass       http://my-django;

@@ -6,8 +6,8 @@ RUN apt-get update && apt-get install -y \
   gettext-base
 
 RUN mkdir -p /var/www/html/abc
-WORKDIR /var/www/html/
-RUN mv index.nginx-debian.html /var/www/html/abc/index.nginx-debian.html
 
+COPY aaa.html /var/www/html/abc/aaa.html
 COPY nginx.conf.template /home/nginx.conf.template
 COPY run_nginx.sh /home/run_nginx.sh
+
