@@ -139,3 +139,4 @@ Best: `FROM python:3.7.6@sha256:xxxxxxx`
 * we need `#!/bin/bash` at the first line of the `.sh` file if we want to run `.sh` file in some docker environment
 * Docker container will automatically stop after `docker run -d` sometimes, it does not mean the dockerfile has some issues
 * Multiple base images (multiple `FROM` statement) is ok in the newer version of docker
+* Exited (`Exited(0)`) and dead (`Exited(1)`)  container are different
