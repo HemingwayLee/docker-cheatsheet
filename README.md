@@ -149,6 +149,9 @@ $ docker inspect 879165535a54
         "RepoTags": [
             "python:3.7"
         ],
+        "RepoDigests": [
+            "python@sha256:6f5d5cc9624c5bb4a360c0a27e2e1c5afe4358adf0b25fe14c9ee6198048eac0"
+        ],
 ```
 
 # Note
