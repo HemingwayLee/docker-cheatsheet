@@ -131,7 +131,7 @@ Best: `FROM python:3.7.6@sha256:xxxxxxx`
 * From docker hub
 ![python_hash](https://user-images.githubusercontent.com/8428372/84723476-a381dd00-afc0-11ea-8131-d8a94b9d957b.png)
 
-* Run `docker inspect xxxx`
+* Run `docker inspect {image id}`
 ```
 $ docker images
 REPOSITORY            TAG                 IMAGE ID            CREATED             SIZE
