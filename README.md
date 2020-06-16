@@ -122,6 +122,13 @@ docker run --net mynet123 --ip 172.18.0.13 -it --rm -p 30003:27017 my-mongo3
 docker network prune
 ```
 
+# Security
+Bad: `FROM python:latest`
+Better: `FROM python:3.7.6`
+Best: `FROM python:3.7.6@sha256:xxxxxxx`
+
+
+
 # Note
 ## Volume
 
