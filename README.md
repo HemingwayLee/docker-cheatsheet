@@ -153,6 +153,7 @@ $ docker inspect 879165535a54
             "python@sha256:6f5d5cc9624c5bb4a360c0a27e2e1c5afe4358adf0b25fe14c9ee6198048eac0"
         ],
 ```
+Choose `RepoDigests`, not `Id`
 
 # Note
 ## Volume
