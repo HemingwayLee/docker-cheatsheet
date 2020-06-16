@@ -123,11 +123,33 @@ docker network prune
 ```
 
 # Security
-Bad: `FROM python:latest`
-Better: `FROM python:3.7.6`
-Best: `FROM python:3.7.6@sha256:xxxxxxx`
+Bad: `FROM python:latest`  
+Better: `FROM python:3.7.6`  
+Best: `FROM python:3.7.6@sha256:xxxxxxx`  
 
+## How to get hash
+* From docker hub
+![python_hash](https://user-images.githubusercontent.com/8428372/84723476-a381dd00-afc0-11ea-8131-d8a94b9d957b.png)
 
+* Run `docker inspect xxxx`
+```
+$ docker images
+REPOSITORY            TAG                 IMAGE ID            CREATED             SIZE
+postgres              latest              dd4fa36a9c2f        3 months ago        395MB
+python                3.7                 879165535a54        4 months ago        919MB
+ubuntu                18.04               775349758637        7 months ago        64.2MB
+ubuntu                16.04               5e8b97a2a082        2 years ago         114MB
+```
+
+```
+$ docker inspect 879165535a54
+[
+    {
+        "Id": "sha256:879165535a540e8d915b6b6f665eca37abcd56b3b2a3510035035b23514eca4b",
+        "RepoTags": [
+            "python:3.7"
+        ],
+```
 
 # Note
 ## Volume
