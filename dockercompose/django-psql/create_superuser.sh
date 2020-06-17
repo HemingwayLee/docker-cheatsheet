@@ -16,3 +16,4 @@ else:
 "
 
 printf "$SCRIPT" | python3 manage.py shell
+
