@@ -163,6 +163,8 @@ Choose `RepoDigests`, not `Id`
 * `From python:3.6` might get different OS if we build dockerfile in different environments
   * Use `docker build --no-cache -t u12_core .` will build it from scratch without using old cached python3.6
 * we need `#!/bin/bash` at the first line of the `.sh` file if we want to run `.sh` file in some docker environment
+  * When we use `#!/bin/bash` then we tell the environment os to use bash as a command interpreter.
+  * If we install many versions of Python, then `#!/usr/bin/env` ensures that the interpreter will use the first installed version on your environment's `$PATH`
 * Docker container will automatically stop after `docker run -d` sometimes, it does not mean the dockerfile has some issues
 * Multiple base images (multiple `FROM` statement) is ok in the newer version of docker
 * Exited (`Exited(0)`) and dead (`Exited(1)`)  container are different
