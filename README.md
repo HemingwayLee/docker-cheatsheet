@@ -168,3 +168,8 @@ Choose `RepoDigests`, not `Id`
 * Docker container will automatically stop after `docker run -d` sometimes, it does not mean the dockerfile has some issues
 * Multiple base images (multiple `FROM` statement) is ok in the newer version of docker
 * Exited (`Exited(0)`) and dead (`Exited(1)`)  container are different
+* When building a docker image, it is in interactive mode. We need to do the following command in Dockerfile 
+```
+(echo "initial command" && cat) | some_tool
+(echo "yes" && cat)  | ./bin/install-mecab-ipadic-neologd -n
+```
