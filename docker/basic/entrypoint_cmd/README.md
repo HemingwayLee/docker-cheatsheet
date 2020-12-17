@@ -28,6 +28,11 @@ and
 docker run -it --rm --entrypoint /bin/bash my-test-linux:latest
 ```
 
+## Overwrite by docker-compose
+```
+docker-compose -f docker-compose-override.yml up
+```
+
 # Note
 * The `ENTRYPOINT` specifies a command that will always be executed when the container starts
 * The `CMD` specifies arguments that will be fed to the `ENTRYPOINT`
