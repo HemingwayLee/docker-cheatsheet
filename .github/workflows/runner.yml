@@ -1,0 +1,23 @@
+name: Publish Docker image
+on:
+  push: {branches: master}
+  # it will be triggered by release
+  #  release is based on tag
+  # release:
+  #   types: [published]
+jobs:
+  push_to_registry:
+    name: Push Docker image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: Push to Docker Hub
+        uses: docker/build-push-action@v1
+        with:
+          path: docker/basic/arg/
+          username: ${{ secrets.MY_DOCKER_USERNAME }}
+          password: ${{ secrets.MY_DOCKER_PASSWORD }}
+          repository: ywlee/my-team-calendar
+          tag_with_ref: true
+          # Automatically tag the built Docker image with the Git reference of the workflow event
