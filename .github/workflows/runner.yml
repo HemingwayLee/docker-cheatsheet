@@ -18,7 +18,6 @@ jobs:
           path: docker/basic/arg/
           username: ${{ secrets.MY_DOCKER_USERNAME }}
           password: ${{ secrets.MY_DOCKER_PASSWORD }}
-          repository: ywlee/my-team-calendar
+          repository: ywlee/my-arg-test
           tag_with_ref: true
           # Automatically tag the built Docker image with the Git reference of the workflow event
-
