@@ -18,6 +18,9 @@ services:
       POSTGRES_HOST: mydb
       POSTGRES_PORT: 5432
       POSTGRES_DB_NAME: abc
+      API_SERVER_ADDRESS: api
+      API_SERVER_PORT: 5000
+      PYTHONUNBUFFERED: 1
     ports:
       - "8000:8000"
     depends_on:
@@ -29,7 +32,8 @@ services:
       dockerfile: api.dockerfile
     command: flask run --host=0.0.0.0
     environment:
-      - FOOBAR=aaa
+      FOOBAR: aaa
+      PYTHONUNBUFFERED: 1
     ports:
       - "5000:5000"
 

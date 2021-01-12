@@ -9,6 +9,8 @@ def hello_world():
 
 @app.route('/env')
 def hello_abc():
+    print(f"server {os.environ.get('FOOBAR', 'No env')} is invoked")
+
     responseBody = { "server_name": os.environ.get('FOOBAR', 'No env') }
     return make_response(jsonify(responseBody), 200)
 
