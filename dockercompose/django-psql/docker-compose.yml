@@ -8,10 +8,16 @@ services:
       POSTGRES_PASSWORD: pass
       POSTGRES_DB: abc
   web:
-    build: .
-    command: ./init.sh
+    build:
+      context: webapp/
+      dockerfile: web.dockerfile
+    command: /home/proj/scripts/init.sh
     environment:
-      DBHOST: mydb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pass
+      POSTGRES_HOST: mydb
+      POSTGRES_PORT: 5432
+      POSTGRES_DB_NAME: abc
     ports:
       - "8000:8000"
     depends_on:

@@ -1,20 +1,21 @@
 #!/bin/bash
 
-until PGPASSWORD=pass psql -h ${DBHOST} -p 5432 -U postgres -c "\q"; do
+until PGPASSWORD=pass psql -h ${POSTGRES_HOST} -p 5432 -U postgres -c "\q"; do
   >&2 echo "Postgres is not available, sleep..."
   sleep 1
 done
 
 >&2 echo "Postgres is up"
 
-cd /home/
-django-admin startproject mysite
+pwd
+ls
 
-cd /home/mysite
+cd /home/proj/
 python3 manage.py makemigrations
 python3 manage.py migrate
 
-mv /home/create_superuser.sh /home/mysite
+cd /home/proj/scripts/
 ./create_superuser.sh
 
+cd /home/proj/
 python3 manage.py runserver 0.0.0.0:8000
