@@ -30,7 +30,8 @@ jobs:
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1
         with:
-          path: dockercompose/microservices/apiserver/api.dockerfile
+          path: dockercompose/microservices/apiserver/
+          dockerfile: api.dockerfile
           username: ${{ secrets.MY_DOCKER_USERNAME }}
           password: ${{ secrets.MY_DOCKER_PASSWORD }}
           repository: ywlee/k8s-test-api-server
@@ -44,7 +45,8 @@ jobs:
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1
         with:
-          path: dockercompose/microservices/webapp/web.dockerfile
+          path: dockercompose/microservices/webapp/
+          dockerfile: web.dockerfile
           username: ${{ secrets.MY_DOCKER_USERNAME }}
           password: ${{ secrets.MY_DOCKER_PASSWORD }}
           repository: ywlee/k8s-test-webapp
