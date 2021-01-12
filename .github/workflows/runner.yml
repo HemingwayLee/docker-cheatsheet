@@ -30,14 +30,14 @@ jobs:
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1
         with:
-          path: .
+          path: dockercompose/microservices/apiserver/
           dockerfile: dockercompose/microservices/apiserver/api.dockerfile
           username: ${{ secrets.MY_DOCKER_USERNAME }}
           password: ${{ secrets.MY_DOCKER_PASSWORD }}
           repository: ywlee/k8s-test-api-server
           tags: ${{ github.run_id }}
   push_webapp_to_registry:
-    name: Push API server image to Docker Hub
+    name: Push webapp image to Docker Hub
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
@@ -45,7 +45,7 @@ jobs:
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1
         with:
-          path: .
+          path: dockercompose/microservices/webapp/
           dockerfile: dockercompose/microservices/webapp/web.dockerfile
           username: ${{ secrets.MY_DOCKER_USERNAME }}
           password: ${{ secrets.MY_DOCKER_PASSWORD }}
