@@ -6,8 +6,8 @@ on:
   # release:
   #   types: [published]
 jobs:
-  push_to_registry:
-    name: Push Docker image to Docker Hub
+  push_arg_to_registry:
+    name: Push Arg Docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
@@ -21,3 +21,32 @@ jobs:
           repository: ywlee/my-arg-test
           tag_with_ref: true
           # Automatically tag the built Docker image with the Git reference of the workflow event
+  push_api_server_to_registry:
+    name: Push API server image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: Push to Docker Hub
+        uses: docker/build-push-action@v1
+        with:
+          path: dockercompose/microservices/apiserver/api.dockerfile
+          username: ${{ secrets.MY_DOCKER_USERNAME }}
+          password: ${{ secrets.MY_DOCKER_PASSWORD }}
+          repository: ywlee/k8s-test-api-server
+          tags: ${{ github.run_id }}
+  push_webapp_to_registry:
+    name: Push API server image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: Push to Docker Hub
+        uses: docker/build-push-action@v1
+        with:
+          path: dockercompose/microservices/webapp/web.dockerfile
+          username: ${{ secrets.MY_DOCKER_USERNAME }}
+          password: ${{ secrets.MY_DOCKER_PASSWORD }}
+          repository: ywlee/k8s-test-webapp
+          tags: ${{ github.run_id }}
+
