@@ -51,4 +51,18 @@ jobs:
           password: ${{ secrets.MY_DOCKER_PASSWORD }}
           repository: ywlee/k8s-test-webapp
           tags: ${{ github.run_id }}
-
+  push_djpsql_to_registry:
+    name: Push webapp image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: Push to Docker Hub
+        uses: docker/build-push-action@v1
+        with:
+          path: dockercompose/django-psql/webapp/
+          dockerfile: dockercompose/django-psql/webapp/web.dockerfile
+          username: ${{ secrets.MY_DOCKER_USERNAME }}
+          password: ${{ secrets.MY_DOCKER_PASSWORD }}
+          repository: ywlee/djpsql
+          tags: ${{ github.run_id }}
