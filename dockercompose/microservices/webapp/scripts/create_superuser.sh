@@ -15,4 +15,5 @@ else:
   print('Skip! super user exists...')
 "
 
-printf "$SCRIPT" | python3 manage.py shell
+printf "$SCRIPT" | python3 /home/proj/manage.py shell
+

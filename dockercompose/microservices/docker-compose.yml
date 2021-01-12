@@ -9,24 +9,27 @@ services:
       POSTGRES_DB: abc
   web:
     build:
-      context: .
+      context: webapp/
       dockerfile: web.dockerfile
-    command: ./init.sh
+    command: /home/proj/scripts/init.sh
     environment:
-      DBHOST: mydb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pass
+      POSTGRES_HOST: mydb
+      POSTGRES_PORT: 5432
+      POSTGRES_DB_NAME: abc
     ports:
       - "8000:8000"
     depends_on:
       - mydb
-  # frontend:
-  #   build:
-  #     context: .
-  #     dockerfile: frontend.dockerfile
-  #   command: /home/run_nginx.sh
-  #   environment:
-  #     MY_IP: web
-  #     MY_PORT: 8000
-  #   ports:
-  #     - "80:80"
-  #   depends_on:
-  #     - web
+      - api
+  api:
+    build:
+      context: apiserver/
+      dockerfile: api.dockerfile
+    command: flask run --host=0.0.0.0
+    environment:
+      - FOOBAR=aaa
+    ports:
+      - "5000:5000"
+
