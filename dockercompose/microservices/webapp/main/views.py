@@ -1,6 +1,6 @@
 import os
 import requests
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from dotenv import load_dotenv
 
 def hello(request):
@@ -10,5 +10,9 @@ def hello(request):
     print(f"api server address: {addr}")
     print(f"api server port: {port}")
 
-    response = requests.get(f'http://{addr}:{port}/env')
-    return HttpResponse(response)
+    response = {
+        "web_server_name": os.environ.get('FOOBAR', 'No env'),
+        "res_from_api_server": requests.get(f'http://{addr}:{port}/env').json()
+    }
+
+    return JsonResponse(response, safe=False)

@@ -11,6 +11,6 @@ def hello_world():
 def hello_abc():
     print(f"server {os.environ.get('FOOBAR', 'No env')} is invoked")
 
-    responseBody = { "server_name": os.environ.get('FOOBAR', 'No env') }
+    responseBody = { "api_server_name": os.environ.get('FOOBAR', 'No env') }
     return make_response(jsonify(responseBody), 200)
 
