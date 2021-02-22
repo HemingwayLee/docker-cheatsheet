@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python3 script.py
+    environment:
+      WEBADDRESS: abc.com.tw
+      PYTHONUNBUFFERED: 1
+
