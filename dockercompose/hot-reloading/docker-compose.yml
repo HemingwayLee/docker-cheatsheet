@@ -8,9 +8,11 @@ services:
       POSTGRES_PASSWORD: pass
       POSTGRES_DB: abc
   web:
-    build:
-      context: webapp/
-      dockerfile: web.dockerfile
+    # both ok
+    image: ywlee/hotreloading:725412021
+    # build:
+    #   context: webapp/
+    #   dockerfile: web.dockerfile
     command: /home/proj/scripts/init.sh
     volumes:
       - "./webapp/:/home/proj/"
