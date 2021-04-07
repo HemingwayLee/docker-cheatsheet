@@ -80,3 +80,18 @@ jobs:
           password: ${{ secrets.MY_DOCKER_PASSWORD }}
           repository: ywlee/runcmd
           tags: ${{ github.run_id }}
+  push_hotreloading_to_registry:
+    name: Push hot reloading image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: Push to Docker Hub
+        uses: docker/build-push-action@v1
+        with:
+          path: dockercompose/hot-reloading/webapp/
+          dockerfile: dockercompose/hot-reloading/webapp/web.dockerfile
+          username: ${{ secrets.MY_DOCKER_USERNAME }}
+          password: ${{ secrets.MY_DOCKER_PASSWORD }}
+          repository: ywlee/hotreloading
+          tags: ${{ github.run_id }}
