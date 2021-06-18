@@ -1,8 +1,11 @@
 # How to run
 
 ```
-docker built -t mytest .
+docker build -t mytest .
 docker run -it --rm -v /{your path}/docker-cheatsheet/docker/vol/here/:/home/ mytest
+
+# This is also ok
+docker run -it --rm -v $(pwd)/here:/home/ mytest
 ```
 
 * The aaa.txt will be in `/home/` folder
