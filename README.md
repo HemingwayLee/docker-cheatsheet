@@ -151,6 +151,11 @@ $ docker inspect 879165535a54
 ```
 Choose `RepoDigests`, not `Id`
 
+* we can also pull with hash
+```
+docker pull jupyter/tensorflow-notebook@sha256:960351dcb9da1d5b57f5d57c32a8295a3231a28248b71491aba4f79a01e36ddd
+```
+
 # Volume
 By default all files created inside a container are stored on a writable container layer. This means that:
 * The data doesn’t persist when that container no longer exists
