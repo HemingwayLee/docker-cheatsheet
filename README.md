@@ -60,8 +60,9 @@ docker build -t dockhello -f ./dockhello .
 docker build -t docker-jenkins .
 ```
 
-`-t`: Tag an image  
-`-f`: Specify a dockerfile file name (we still need a `.` in the end of the command)  
+* `-t`: Tag an image  
+* `-f`: Specify a dockerfile file name (we still need a `.` in the end of the command)  
+* `--progress=plain`: show console output result when building
 
 ## docker run (docker image to docker container)
 
