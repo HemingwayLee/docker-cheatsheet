@@ -8,6 +8,11 @@ docker-compose down
 
 `docker-compose up` will not rebuild the image although Dockerfile has changed, we need to use `docker-compose build`
 
+## Run multiple docker-compose command
+```
+docker-compose -f docker-compose1.yml -f docker-compose2.yml up
+```
+
 # showcase
 ## Hello world for django application
 * `hello-django`
