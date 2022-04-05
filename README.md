@@ -198,5 +198,6 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 (echo "yes" && cat)  | ./bin/install-mecab-ipadic-neologd -n
 ```
 * It is ok not to have `CMD` and `ENTRYPOINT` in the dockerfile
-
-
+* When we are behind proxy, we need to use a customized `pip.conf` file during the building process to specify
+  * proxy, trusted_host, ssl_verify
+* We can build/save/load/tag docker images in a limited network environment
