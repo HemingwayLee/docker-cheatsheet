@@ -13,6 +13,11 @@ docker-compose down
 docker-compose -f docker-compose1.yml -f docker-compose2.yml up
 ```
 
+## vs k8s
+* Kubernetes and Docker Compose are both container orchestration frameworks
+  * Kubernetes runs containers over a number of computers, virtual or real
+  * Docker Compose runs containers on a single host machine
+
 # showcase
 ## Hello world for django application
 * `hello-django`
