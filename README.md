@@ -119,6 +119,12 @@ docker run --net mynet123 --ip 172.18.0.13 -it --rm -p 30003:27017 my-mongo3
 docker network prune
 ```
 
+### Remove all dangling build caches
+```
+docker builder prune
+```
+* `--all`, `-a`, Remove all unused build cache, not just dangling ones
+
 # Security
 Bad: `FROM python:latest`  
 Better: `FROM python:3.7.6`  
