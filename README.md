@@ -107,6 +107,7 @@ docker cp {container_id}:/foo.txt foo.txt
 ```
 
 ## Network
+* Network need to be created on on-premise server to avoid conflict [issue](https://jkbys.net/docker%E3%81%8C%E8%87%AA%E5%8B%95%E3%81%A7%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6%E3%82%8Bip%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E3%81%AE%E7%AF%84%E5%9B%B2%E3%82%92%E6%8C%87%E5%AE%9A)
 ```
 docker network create --subnet=172.18.0.0/16 mynet123
 docker run --net mynet123 --ip 172.18.0.15 -it --rm -p 30001:27017 my-mongo1
